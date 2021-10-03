@@ -41,3 +41,31 @@ mysql> create table contactDetails (
     -> );
 Query OK, 0 rows affected (1.58 sec)
 
+
+
+mysql> insert into contactDetails(firstName,last_name,address,city,state,zip,phone_number,email)values("Rushi","Bhosle","kalepadal","pune","maharastra","413518","8788586956","rushikeshb5078@gmail.com");
+Query OK, 1 row affected (1.80 sec)
+
+mysql> select * form contactDetails;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'form contactDetails' at line 1
+mysql> select * from contactDetails;
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address   | city | state      | zip    | phone_number | email                    |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+1 row in set (0.13 sec)
+
+mysql> insert into contactDetails(firstName,last_name,address,city,state,zip,phone_number,email)values("Suraj","Kale","Swargate","pune","maharastra","413518","9284631453","surajk5078@gmail.com");
+Query OK, 1 row affected (2.03 sec)
+
+mysql> select * from contactDetails;
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address   | city | state      | zip    | phone_number | email                    |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Suraj     | Kale      | swargate  | pune | maharastra | 413518 | 9284631453   | surajk5078@gmail.com     |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+2 rows in set (0.00 sec)
+
+ 
