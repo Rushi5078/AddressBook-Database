@@ -340,3 +340,43 @@ mysql> select * from contactDetails;
 | om        | pawar       | jtower       | aurangabad | maharastra | 411264 | 8879456215   | ompawar@gmail.com        | Profession  |
 +-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+-------------+
 9 rows in set (0.00 sec)
+
+mysql> select * from contactDetails;
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+-------------+
+| firstName | last_name   | address      | city       | state      | zip    | phone_number | email                    | ContactType |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+-------------+
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com | Friends     |
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com | Friends     |
+| laxman    | bhosle      | gokulnager   | latur      | maharastra | 413695 | 8569765458   | lucky123@gmail.com       | Family      |
+| omkar     | jadhav      | handenager   | mumbai     | maharastra | 456987 | 9865789845   | okjdhav456@gmail.com     | Family      |
+| suraj     | kale        | shivnager    | bidar      | karnataka  | 456987 | 9865546845   | surajk456@gmail.com      | Friends     |
+| abhijeet  | sowmavnashi | shivnager    | pune       | maharastra | 421987 | 9865452845   | abhi456@gmail.com        | Family      |
+| sham      | biradar     | adershcolony | latur      | maharastra | 413564 | 9685462845   | sham156@gmail.com        | Profession  |
+| vishal    | shastri     | shryanager   | aurangabad | maharastra | 410001 | 9758616845   | vishal236@gmail.com      | Friends     |
+| om        | pawar       | jtower       | aurangabad | maharastra | 411264 | 8879456215   | ompawar@gmail.com        | Profession  |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+-------------+
+9 rows in set (0.00 sec)
+
+mysql> select count(*) from contactDetails where ContactType = "Friends";
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from contactDetails where ContactType = "Family";
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from contactDetails where ContactType = "Profession";
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
