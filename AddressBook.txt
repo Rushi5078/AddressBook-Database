@@ -124,3 +124,39 @@ mysql> select * from contactDetails where city = "pune";
 | Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
 +-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
 2 rows in set (0.00 sec)
+
+mysql> select * from contactDetails;
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+| firstName | last_name   | address      | city       | state      | zip    | phone_number | email                    |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| laxman    | bhosle      | gokulnager   | latur      | maharastra | 413695 | 8569765458   | lucky123@gmail.com       |
+| omkar     | jadhav      | handenager   | mumbai     | maharastra | 456987 | 9865789845   | okjdhav456@gmail.com     |
+| suraj     | kale        | shivnager    | bidar      | karnataka  | 456987 | 9865546845   | surajk456@gmail.com      |
+| abhijeet  | sowmavnashi | shivnager    | pune       | maharastra | 421987 | 9865452845   | abhi456@gmail.com        |
+| sham      | biradar     | adershcolony | latur      | maharastra | 413564 | 9685462845   | sham156@gmail.com        |
+| vishal    | shastri     | shryanager   | aurangabad | maharastra | 410001 | 9758616845   | vishal236@gmail.com      |
+| om        | pawar       | jtower       | aurangabad | maharastra | 411264 | 8879456215   | ompawar@gmail.com        |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+9 rows in set (0.03 sec)
+
+mysql> select count(*) from city where contactDetails;
+ERROR 1146 (42S02): Table 'addressbook1.city' doesn't exist
+mysql> select count(*) from city where table_name = "contactDetails";
+ERROR 1146 (42S02): Table 'addressbook1.city' doesn't exist
+mysql> select count(*) from contactDetails where city = "pune";
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.34 sec)
+
+mysql> select count(*) from contactDetails where city = "aurangabad";
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
