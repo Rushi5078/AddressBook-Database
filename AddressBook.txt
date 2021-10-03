@@ -28,3 +28,168 @@ mysql> show databases;
 | world              |
 +--------------------+
 8 rows in set (0.13 sec)
+
+mysql> create table contactDetails (
+    -> firstName varchar(150) not null,
+    -> last_name varchar(150) not null,
+    -> address varchar(150) not null,
+    -> city varchar(150) not null,
+    -> state varchar(150) not null,
+    -> zip varchar(150) not null,
+    -> phone_number varchar(200) not null,
+    -> email varchar(120) not null
+    -> );
+Query OK, 0 rows affected (1.58 sec)
+
+
+mysql> insert into contactDetails(firstName,last_name,address,city,state,zip,phone_number,email)values("Rushi","Bhosle","kalepadal","pune","maharastra","413518","8788586956","rushikeshb5078@gmail.com");
+Query OK, 1 row affected (1.80 sec)
+
+mysql> select * form contactDetails;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'form contactDetails' at line 1
+mysql> select * from contactDetails;
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address   | city | state      | zip    | phone_number | email                    |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+1 row in set (0.13 sec)
+
+mysql> insert into contactDetails(firstName,last_name,address,city,state,zip,phone_number,email)values("Suraj","Kale","Swargate","pune","maharastra","413518","9284631453","surajk5078@gmail.com");
+Query OK, 1 row affected (2.03 sec)
+
+mysql> select * from contactDetails;
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address   | city | state      | zip    | phone_number | email                    |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Suraj     | Kale      | swargate  | pune | maharastra | 413518 | 9284631453   | surajk5078@gmail.com     |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+2 rows in set (0.00 sec)
+
+
+mysql>  update contactDetails
+    -> set  address = 'golai',city = 'latur'where firstName = "suraj";
+Query OK, 1 row affected (0.18 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from contactDetails;
++-----------+-----------+-----------+-------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address   | city  | state      | zip    | phone_number | email                    |
++-----------+-----------+-----------+-------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal | pune  | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle    | kalepadal | pune  | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| suraj     | kale      | golai     | latur | maharastra | 413518 | 9284631453   | surajk5078@gmail.com     |
++-----------+-----------+-----------+-------+------------+--------+--------------+--------------------------+
+3 rows in set (0.00 sec)
+
+mysql> delete from contactdetails
+    -> where firstName = "suraj";
+Query OK, 1 row affected (0.22 sec)
+
+mysql> select * from contactDetails;
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address   | city | state      | zip    | phone_number | email                    |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+2 rows in set (0.06 sec)
+
+mysql> select * from contactDetails;
++-----------+-----------+------------+--------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address    | city   | state      | zip    | phone_number | email                    |
++-----------+-----------+------------+--------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal  | pune   | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle    | kalepadal  | pune   | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| laxman    | bhosle    | gokulnager | latur  | maharastra | 413695 | 8569765458   | lucky123@gmail.com       |
+| omkar     | jadhav    | handenager | mumbai | maharastra | 456987 | 9865789845   | okjdhav456@gmail.com     |
+| suraj     | kale      | shivnager  | bidar  | karnataka  | 456987 | 9865546845   | surajk456@gmail.com      |
++-----------+-----------+------------+--------+------------+--------+--------------+--------------------------+
+5 rows in set (0.10 sec)
+
+mysql> select * from contactDetails where city = "latur";
++-----------+-----------+------------+-------+------------+--------+--------------+--------------------+
+| firstName | last_name | address    | city  | state      | zip    | phone_number | email              |
++-----------+-----------+------------+-------+------------+--------+--------------+--------------------+
+| laxman    | bhosle    | gokulnager | latur | maharastra | 413695 | 8569765458   | lucky123@gmail.com |
++-----------+-----------+------------+-------+------------+--------+--------------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from contactDetails where city = "pune";
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address   | city | state      | zip    | phone_number | email                    |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from contactDetails;
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+| firstName | last_name   | address      | city       | state      | zip    | phone_number | email                    |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| laxman    | bhosle      | gokulnager   | latur      | maharastra | 413695 | 8569765458   | lucky123@gmail.com       |
+| omkar     | jadhav      | handenager   | mumbai     | maharastra | 456987 | 9865789845   | okjdhav456@gmail.com     |
+| suraj     | kale        | shivnager    | bidar      | karnataka  | 456987 | 9865546845   | surajk456@gmail.com      |
+| abhijeet  | sowmavnashi | shivnager    | pune       | maharastra | 421987 | 9865452845   | abhi456@gmail.com        |
+| sham      | biradar     | adershcolony | latur      | maharastra | 413564 | 9685462845   | sham156@gmail.com        |
+| vishal    | shastri     | shryanager   | aurangabad | maharastra | 410001 | 9758616845   | vishal236@gmail.com      |
+| om        | pawar       | jtower       | aurangabad | maharastra | 411264 | 8879456215   | ompawar@gmail.com        |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+9 rows in set (0.03 sec)
+
+mysql> select count(*) from city where contactDetails;
+ERROR 1146 (42S02): Table 'addressbook1.city' doesn't exist
+mysql> select count(*) from city where table_name = "contactDetails";
+ERROR 1146 (42S02): Table 'addressbook1.city' doesn't exist
+mysql> select count(*) from contactDetails where city = "pune";
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.34 sec)
+
+mysql> select count(*) from contactDetails where city = "aurangabad";
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from contactDetails;
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+| firstName | last_name   | address      | city       | state      | zip    | phone_number | email                    |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| laxman    | bhosle      | gokulnager   | latur      | maharastra | 413695 | 8569765458   | lucky123@gmail.com       |
+| omkar     | jadhav      | handenager   | mumbai     | maharastra | 456987 | 9865789845   | okjdhav456@gmail.com     |
+| suraj     | kale        | shivnager    | bidar      | karnataka  | 456987 | 9865546845   | surajk456@gmail.com      |
+| abhijeet  | sowmavnashi | shivnager    | pune       | maharastra | 421987 | 9865452845   | abhi456@gmail.com        |
+| sham      | biradar     | adershcolony | latur      | maharastra | 413564 | 9685462845   | sham156@gmail.com        |
+| vishal    | shastri     | shryanager   | aurangabad | maharastra | 410001 | 9758616845   | vishal236@gmail.com      |
+| om        | pawar       | jtower       | aurangabad | maharastra | 411264 | 8879456215   | ompawar@gmail.com        |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from contactDetails
+    -> order by city;
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+| firstName | last_name   | address      | city       | state      | zip    | phone_number | email                    |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+| vishal    | shastri     | shryanager   | aurangabad | maharastra | 410001 | 9758616845   | vishal236@gmail.com      |
+| om        | pawar       | jtower       | aurangabad | maharastra | 411264 | 8879456215   | ompawar@gmail.com        |
+| suraj     | kale        | shivnager    | bidar      | karnataka  | 456987 | 9865546845   | surajk456@gmail.com      |
+| laxman    | bhosle      | gokulnager   | latur      | maharastra | 413695 | 8569765458   | lucky123@gmail.com       |
+| sham      | biradar     | adershcolony | latur      | maharastra | 413564 | 9685462845   | sham156@gmail.com        |
+| omkar     | jadhav      | handenager   | mumbai     | maharastra | 456987 | 9865789845   | okjdhav456@gmail.com     |
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle      | kalepadal    | pune       | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| abhijeet  | sowmavnashi | shivnager    | pune       | maharastra | 421987 | 9865452845   | abhi456@gmail.com        |
++-----------+-------------+--------------+------------+------------+--------+--------------+--------------------------+
+9 rows in set (0.00 sec)
