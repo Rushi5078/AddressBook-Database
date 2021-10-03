@@ -99,6 +99,37 @@ mysql> select * from contactDetails;
 2 rows in set (0.06 sec)
 
 
+mysql> select * from contactDetails;
++-----------+-----------+------------+--------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address    | city   | state      | zip    | phone_number | email                    |
++-----------+-----------+------------+--------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal  | pune   | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle    | kalepadal  | pune   | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| laxman    | bhosle    | gokulnager | latur  | maharastra | 413695 | 8569765458   | lucky123@gmail.com       |
+| omkar     | jadhav    | handenager | mumbai | maharastra | 456987 | 9865789845   | okjdhav456@gmail.com     |
+| suraj     | kale      | shivnager  | bidar  | karnataka  | 456987 | 9865546845   | surajk456@gmail.com      |
++-----------+-----------+------------+--------+------------+--------+--------------+--------------------------+
+5 rows in set (0.10 sec)
+
+mysql> select * from contactDetails where city = "latur";
++-----------+-----------+------------+-------+------------+--------+--------------+--------------------+
+| firstName | last_name | address    | city  | state      | zip    | phone_number | email              |
++-----------+-----------+------------+-------+------------+--------+--------------+--------------------+
+| laxman    | bhosle    | gokulnager | latur | maharastra | 413695 | 8569765458   | lucky123@gmail.com |
++-----------+-----------+------------+-------+------------+--------+--------------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from contactDetails where city = "pune";
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| firstName | last_name | address   | city | state      | zip    | phone_number | email                    |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
+| Rushi     | Bhosle    | kalepadal | pune | maharastra | 413518 | 8788586956   | rushikeshb5078@gmail.com |
++-----------+-----------+-----------+------+------------+--------+--------------+--------------------------+
+2 rows in set (0.00 sec)
+
+
  
+
 
 
