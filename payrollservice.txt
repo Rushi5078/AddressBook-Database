@@ -228,4 +228,125 @@ mysql> select count(salary) from Employee_payroll where GENDER = 'F' group by GE
 |             2 |
 +---------------+
 1 row in set (0.00 sec)
+
+
+
+
+mysql> desc Employee_payroll;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(150) | NO   |     | NULL    |                |
+| GENDER      | char(1)      | NO   |     | NULL    |                |
+| salary      | double       | NO   |     | NULL    |                |
+| start_date  | date         | NO   |     | NULL    |                |
+| phonenumber | varchar(25)  | NO   |     | NULL    |                |
+| address     | varchar(45)  | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+UC8&UC9
+
+mysql> alter table Employee_payroll add department varchar(50) not null after start_date;
+Query OK, 0 rows affected (2.72 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table Employee_payroll add basic_pay double not null after start_date;
+Query OK, 0 rows affected (1.19 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table Employee_payroll add deductions double not null after start_date;
+Query OK, 0 rows affected (1.52 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table Employee_payroll add taxable_pay double not null after start_date;
+Query OK, 0 rows affected (0.97 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table Employee_payroll add tax double not null after start_date;
+Query OK, 0 rows affected (2.23 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table Employee_payroll add net_pay double not null after start_date;
+Query OK, 0 rows affected (1.88 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Employee_payroll;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(150) | NO   |     | NULL    |                |
+| GENDER      | char(1)      | NO   |     | NULL    |                |
+| salary      | double       | NO   |     | NULL    |                |
+| start_date  | date         | NO   |     | NULL    |                |
+| net_pay     | double       | NO   |     | NULL    |                |
+| tax         | double       | NO   |     | NULL    |                |
+| taxable_pay | double       | NO   |     | NULL    |                |
+| deductions  | double       | NO   |     | NULL    |                |
+| basic_pay   | double       | NO   |     | NULL    |                |
+| department  | varchar(50)  | NO   |     | NULL    |                |
+| phonenumber | varchar(25)  | NO   |     | NULL    |                |
+| address     | varchar(45)  | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+13 rows in set (0.04 sec)
+
+UC10
+
+mysql> insert into Employee_payroll(name,GENDER,salary,start_date,net_pay,tax,taxable_pay,deductions,basic_pay,department,phonenumber,address)values("Terisa","F","3000000","2019-11-13","0","0","0","0","3000000","Sales","null","null");
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from Employee_payroll;
++----+---------+--------+---------+------------+---------+-----+-------------+------------+-----------+------------+-------------+---------+
+| id | name    | GENDER | salary  | start_date | net_pay | tax | taxable_pay | deductions | basic_pay | department | phonenumber | address |
++----+---------+--------+---------+------------+---------+-----+-------------+------------+-----------+------------+-------------+---------+
+|  1 | Bill    | M      |  400000 | 2016-08-15 |       0 |   0 |           0 |          0 |         0 |            |             |         |
+|  2 | chali   | M      |   54200 | 2018-09-14 |       0 |   0 |           0 |          0 |         0 |            |             |         |
+|  3 | Elon    | M      |  124500 | 2020-12-30 |       0 |   0 |           0 |          0 |         0 |            |             |         |
+|  4 | Smital  | F      |   25614 | 2018-10-12 |       0 |   0 |           0 |          0 |         0 |            |             |         |
+|  5 | Nandini | F      |  451200 | 2021-12-30 |       0 |   0 |           0 |          0 |         0 |            |             |         |
+|  6 | Terisa  | F      | 3000000 | 2019-11-13 |       0 |   0 |           0 |          0 |   3000000 | Sales      | null        | null    |
++----+---------+--------+---------+------------+---------+-----+-------------+------------+-----------+------------+-------------+---------+
+6 rows in set (0.03 sec)
+
+mysql> insert into Employee_payroll(name,GENDER,salary,start_date,net_pay,tax,taxable_pay,deductions,basic_pay,department,phonenumber,address)values("Terisa","F","3000000","2018-01-03","1500000","500000","2000000","1000000","3000000","Marketing","null","null");
+Query OK, 1 row affected (0.34 sec)
+
+mysql> select * from Employee_payroll;
++----+---------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+| id | name    | GENDER | salary  | start_date | net_pay | tax    | taxable_pay | deductions | basic_pay | department | phonenumber | address |
++----+---------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+|  1 | Bill    | M      |  400000 | 2016-08-15 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  2 | chali   | M      |   54200 | 2018-09-14 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  3 | Elon    | M      |  124500 | 2020-12-30 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  4 | Smital  | F      |   25614 | 2018-10-12 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  5 | Nandini | F      |  451200 | 2021-12-30 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  6 | Terisa  | F      | 3000000 | 2019-11-13 |       0 |      0 |           0 |          0 |   3000000 | Sales      | null        | null    |
+|  7 | Terisa  | F      | 3000000 | 2018-01-03 | 1500000 | 500000 |     2000000 |    1000000 |   3000000 | Marketing  | null        | null    |
++----+---------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Employee_payroll;
++----+---------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+| id | name    | GENDER | salary  | start_date | net_pay | tax    | taxable_pay | deductions | basic_pay | department | phonenumber | address |
++----+---------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+|  1 | Bill    | M      |  400000 | 2016-08-15 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  2 | chali   | M      |   54200 | 2018-09-14 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  3 | Elon    | M      |  124500 | 2020-12-30 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  4 | Smital  | F      |   25614 | 2018-10-12 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  5 | Nandini | F      |  451200 | 2021-12-30 |       0 |      0 |           0 |          0 |         0 |            |             |         |
+|  6 | Terisa  | F      | 3000000 | 2019-11-13 |       0 |      0 |           0 |          0 |   3000000 | Sales      | null        | null    |
+|  7 | Terisa  | F      | 3000000 | 2018-01-03 | 1500000 | 500000 |     2000000 |    1000000 |   3000000 | Marketing  | null        | null    |
++----+---------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Employee_payroll where name="Terisa";
++----+--------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+| id | name   | GENDER | salary  | start_date | net_pay | tax    | taxable_pay | deductions | basic_pay | department | phonenumber | address |
++----+--------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+|  6 | Terisa | F      | 3000000 | 2019-11-13 |       0 |      0 |           0 |          0 |   3000000 | Sales      | null        | null    |
+|  7 | Terisa | F      | 3000000 | 2018-01-03 | 1500000 | 500000 |     2000000 |    1000000 |   3000000 | Marketing  | null        | null    |
++----+--------+--------+---------+------------+---------+--------+-------------+------------+-----------+------------+-------------+---------+
+2 rows in set (0.00 sec)
   
